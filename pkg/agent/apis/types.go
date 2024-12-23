@@ -76,9 +76,9 @@ func (r AntreaAgentInfoResponse) SortRows() bool {
 }
 
 type FqdnCacheResponse struct {
-	fqdnName       string    `json:"fqdnName" yaml:"fqdnName"`
-	ipAddress      net.IP    `json:"address" yaml:"address"`
-	expirationTime time.Time `json:"expirationTime" yaml:"expirationTime"`
+	fqdnName       string
+	ipAddress      net.IP
+	expirationTime time.Time
 }
 
 func (r FqdnCacheResponse) GetTableHeader() []string {

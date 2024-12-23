@@ -63,6 +63,12 @@ func (m *MockAgentNetworkPolicyInfoQuerier) EXPECT() *MockAgentNetworkPolicyInfo
 	return m.recorder
 }
 
+func (m *MockAgentNetworkPolicyInfoQuerier) GetFqdnCache() []types.DnsCacheEntry {
+	ret := m.ctrl.Call(m, "GetFqdnCache")
+	ret0, _ := ret[0].([]types.DnsCacheEntry)
+	return ret0
+}
+
 // GetAddressGroupNum mocks base method.
 func (m *MockAgentNetworkPolicyInfoQuerier) GetAddressGroupNum() int {
 	m.ctrl.T.Helper()

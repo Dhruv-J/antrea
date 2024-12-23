@@ -11,15 +11,6 @@ type Response struct {
 	*types.DnsCacheEntry
 }
 
-func objTransform(o interface{}, _ map[string]string) (interface{}, error) {
-	return Response{o.(*types.DnsCacheEntry)}, nil
-}
-
-func listTransform(l interface{}, _ map[string]string) (interface{}, error) {
-	result := l.([]Response)
-	return result, nil
-}
-
 func Transform(reader io.Reader, single bool, opts map[string]string) (interface{}, error) {
 	b, err := io.ReadAll(reader)
 	if err != nil {
