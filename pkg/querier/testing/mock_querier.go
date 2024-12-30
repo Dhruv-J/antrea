@@ -63,12 +63,6 @@ func (m *MockAgentNetworkPolicyInfoQuerier) EXPECT() *MockAgentNetworkPolicyInfo
 	return m.recorder
 }
 
-func (m *MockAgentNetworkPolicyInfoQuerier) GetFqdnCache() []types.DnsCacheEntry {
-	ret := m.ctrl.Call(m, "GetFqdnCache")
-	ret0, _ := ret[0].([]types.DnsCacheEntry)
-	return ret0
-}
-
 // GetAddressGroupNum mocks base method.
 func (m *MockAgentNetworkPolicyInfoQuerier) GetAddressGroupNum() int {
 	m.ctrl.T.Helper()
@@ -151,6 +145,20 @@ func (m *MockAgentNetworkPolicyInfoQuerier) GetControllerConnectionStatus() bool
 func (mr *MockAgentNetworkPolicyInfoQuerierMockRecorder) GetControllerConnectionStatus() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetControllerConnectionStatus", reflect.TypeOf((*MockAgentNetworkPolicyInfoQuerier)(nil).GetControllerConnectionStatus))
+}
+
+// GetFqdnCache mocks base method.
+func (m *MockAgentNetworkPolicyInfoQuerier) GetFqdnCache() []types.DnsCacheEntry {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetFqdnCache")
+	ret0, _ := ret[0].([]types.DnsCacheEntry)
+	return ret0
+}
+
+// GetFqdnCache indicates an expected call of GetFqdnCache.
+func (mr *MockAgentNetworkPolicyInfoQuerierMockRecorder) GetFqdnCache() *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetFqdnCache", reflect.TypeOf((*MockAgentNetworkPolicyInfoQuerier)(nil).GetFqdnCache))
 }
 
 // GetNetworkPolicies mocks base method.
