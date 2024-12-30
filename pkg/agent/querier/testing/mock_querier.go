@@ -25,6 +25,7 @@
 package testing
 
 import (
+	"fmt"
 	reflect "reflect"
 
 	config "antrea.io/antrea/pkg/agent/config"
@@ -67,8 +68,14 @@ func (m *MockAgentQuerier) EXPECT() *MockAgentQuerierMockRecorder {
 
 func (m *MockAgentQuerier) GetFqdnCache() []types.DnsCacheEntry {
 	ret := m.ctrl.Call(m, "GetFqdnCache")
+	fmt.Printf("ret: %v\n", ret[0])
 	ret0, _ := ret[0].([]types.DnsCacheEntry)
 	return ret0
+}
+
+func (mr *MockAgentQuerierMockRecorder) GetFqdnCache() *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetFqdnCache", reflect.TypeOf((*MockAgentQuerier)(nil).GetFqdnCache))
 }
 
 // GetAgentInfo mocks base method.

@@ -33,7 +33,7 @@ IMAGE_NAME="antrea/codegen:kubernetes-1.31.1-build.1"
 # speed (bind mounts are slow) and to avoid having to add the source repository
 # to the "safe" list in the Git config when starting the container (required
 # because of user mismatch).
-if git_status=$(git status --porcelain --untracked=no 2>/dev/null) && [[ -n "${git_status}" ]]; then
+if git_status=$(git status --porcelain --untracked=no) && [[ -n "${git_status}" ]]; then
   echoerr "!!! Dirty tree. Clean up and try again."
   exit 1
 fi
